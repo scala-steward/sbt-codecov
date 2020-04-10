@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/alejandrohdezma/sbt-codecov/tree/HEAD)
+## [v0.1.0](https://github.com/alejandrohdezma/sbt-codecov/tree/v0.1.0) (2020-04-10)
 
-[Full Changelog](https://github.com/alejandrohdezma/sbt-codecov/compare/cfb2974fee74c72d5fc561e7af25b34e1cdec35e...HEAD)
+[Full Changelog](https://github.com/alejandrohdezma/sbt-codecov/compare/cfb2974fee74c72d5fc561e7af25b34e1cdec35e...v0.1.0)
 
 🚀 **Features**
 
