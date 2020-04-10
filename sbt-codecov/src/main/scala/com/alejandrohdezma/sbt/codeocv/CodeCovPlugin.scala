@@ -30,30 +30,30 @@ import scoverage.ScoverageSbtPlugin
  *
  * The plugin adds the following tasks/commands/settings:
  *
- *  - '''codecovProcess''': Process that should be executed in order to upload
- * coverage data to Codecov. Defaults to `bash <(curl -s https://codecov.io/bash)`.
- *  - '''retrieveCoverage''': Task used to generate coverage report. Defaults to
- * sbt-scoverage's `coverageAggregate`.
- *  - '''codecovUpload''': Uploads coverage data to Codecov using the process set
- * in `codecovProcess`.
- *  - '''testCovered''': Runs the test task in all the configurations that enabled
- * it while recovering coverage data from them. After a successful execution,
- * uploads the coverage data to Codecov using the `codecovUpload` task.
+ *  - '''codecovProcess''': This setting contains the process that should be executed in
+ *  order to upload coverage data to Codecov. Defaults to bash <(curl -s https://codecov.io/bash) -Z.
+ *  - '''retrieveCoverage''': This task uploads coverage data to Codecov using the process
+ *  setting codecovProcess.
+ *  - '''codecovUpload''': Task used to generate coverage report. Defaults to sbt-scoverage's
+ *  coverageAggregate.
+ *  - '''testCovered''': This command runs the test task in all the configurations that enable
+ *  it while recovering coverage data from them. After a successful execution, uploads the
+ *  coverage data to Codecov using the codecovUpload task.
  */
 object CodeCovPlugin extends AutoPlugin {
 
   object autoImport {
 
     val codecovUpload = taskKey[Unit] {
-      "Upload code coverage data to Codecov. Defaults to `bash <(curl -s https://codecov.io/bash) - Z`."
+      "Uploads code coverage data to Codecov. Defaults to `bash <(curl -s https://codecov.io/bash) - Z`"
     }
 
     val retrieveCoverage = taskKey[Unit] {
-      "Generates coverage report. Defaults to `coverageAggregate`."
+      "Generates coverage report. Defaults to `coverageAggregate`"
     }
 
     val codecovProcess = settingKey[ProcessBuilder] {
-      "Process to execute in order to upload coverage data to Codecov"
+      "The process that should be executed in order to upload coverage data to Codecov"
     }
 
   }
