@@ -1,0 +1,2 @@
+# this test ensures build fails if sbt-scoverage is not present
+> checkCodecovProcess

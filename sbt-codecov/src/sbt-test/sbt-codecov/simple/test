@@ -1,0 +1,3 @@
+# this test ensures testCovered works as expected
+> testCovered
+$ exists scoverage.xml
