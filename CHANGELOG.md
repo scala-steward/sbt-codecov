@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/alejandrohdezma/sbt-codecov/tree/HEAD)
+
+[Full Changelog](https://github.com/alejandrohdezma/sbt-codecov/compare/v0.1.0...HEAD)
+
+🚀 **Features**
+
+- Add way of disabling uploading code to Codecov using system property [\#14](https://github.com/alejandrohdezma/sbt-codecov/pull/14) ([alejandrohdezma](https://github.com/alejandrohdezma))
+
 ## [v0.1.0](https://github.com/alejandrohdezma/sbt-codecov/tree/v0.1.0) (2020-04-10)
 
 [Full Changelog](https://github.com/alejandrohdezma/sbt-codecov/compare/cfb2974fee74c72d5fc561e7af25b34e1cdec35e...v0.1.0)
