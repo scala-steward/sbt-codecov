@@ -37,7 +37,7 @@ set coverageEnabled in ThisBuild := false
 Add the following line to your `plugins.sbt` file:
 
 ```sbt
-addSbtPlugin("com.alejandrohdezma" %% "sbt-codecov" % "0.1.0")
+addSbtPlugin("com.alejandrohdezma" %% "sbt-codecov" % "0.1.1")
 ```
 
 > Note: [sbt-scoverage](https://github.com/scoverage/sbt-scoverage) must be provided in the SBT build in order for this plugin to work. 
