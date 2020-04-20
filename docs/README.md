@@ -13,6 +13,12 @@ The plugin adds the following tasks/commands/settings:
 | `retrieveCoverage` | Task    |                                          Task used to generate coverage report. Defaults to [sbt-scoverage's `coverageAggregate`](https://github.com/scoverage/sbt-scoverage#multi-project-reports).                                         | `Project`   |
 | `testCovered`      | Command | This command runs the test task in all the configurations that enable it while recovering coverage data from them. After a successful execution, uploads the coverage data to [Codecov](https://codecov.io/) using the `codecovUpload` task. | `Project`   |
 
+> If for any reason you still want to use `testCovered` but avoid uploading coverage to Codecov, you can pass the system property `skip.coverage` set to `true`. Example:
+>
+> ```bash
+> sbt testCovered -Dskip.coverage=true
+> ```
+
 ## Example
 
 Given an SBT build that enables the `IntegrationTest` configuration... running `sbt testCovered` command will execute the following:

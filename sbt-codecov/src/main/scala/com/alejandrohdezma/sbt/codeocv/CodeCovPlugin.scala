@@ -35,7 +35,8 @@ import scoverage.ScoverageSbtPlugin
  *  - '''retrieveCoverage''': This task uploads coverage data to Codecov using the process
  *  setting codecovProcess.
  *  - '''codecovUpload''': Task used to generate coverage report. Defaults to sbt-scoverage's
- *  coverageAggregate.
+ *  coverageAggregate. This task can be skipped if SBT is run containing the system property
+ *  "skip.coverage" set to "true".
  *  - '''testCovered''': This command runs the test task in all the configurations that enable
  *  it while recovering coverage data from them. After a successful execution, uploads the
  *  coverage data to Codecov using the codecovUpload task.
@@ -73,12 +74,16 @@ object CodeCovPlugin extends AutoPlugin {
   override def buildSettings: Seq[Def.Setting[_]] = Seq(
     codecovProcess := url("https://codecov.io/bash").cat #| "bash /dev/stdin -Z",
     codecovUpload := {
-      val log = ProcessLogger(streams.value.log.out(_), streams.value.log.err(_))
+      val log = streams.value.log
 
-      val result = codecovProcess.value ! log
+      if (sys.props.get("skip.coverage").contains("true")) {
+        log.warn("Coverage has being disabled by the usage of '-Dskip.coverage=true'")
+      } else {
+        val result = codecovProcess.value ! log
 
-      if (result != 0) {
-        sys.error("Unable to upload coverage to Codecov")
+        if (result != 0) {
+          sys.error("Unable to upload coverage to Codecov")
+        }
       }
     }
   )
