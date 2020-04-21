@@ -19,7 +19,7 @@ package com.alejandrohdezma.sbt.codeocv
 import scala.sys.process._
 
 import sbt.Keys._
-import sbt.{Def, _}
+import sbt._
 
 import scoverage.ScoverageKeys._
 import scoverage.ScoverageSbtPlugin
