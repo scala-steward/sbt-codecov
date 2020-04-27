@@ -37,8 +37,8 @@ import scoverage.ScoverageSbtPlugin
  *  - '''codecovUpload''': Task used to generate coverage report. Defaults to sbt-scoverage's
  *  coverageAggregate. This task can be skipped if SBT is run containing the system property
  *  "skip.coverage" set to "true".
- *  - '''testCovered''': This command runs the test task in all the configurations that enable
- *  it while recovering coverage data from them. After a successful execution, uploads the
+ *  - '''testCovered''': This command runs the test task with cross-building in all the configurations
+ *  that enable it while recovering coverage data from them. After a successful execution, uploads the
  *  coverage data to Codecov using the codecovUpload task.
  */
 object CodeCovPlugin extends AutoPlugin {
@@ -89,12 +89,12 @@ object CodeCovPlugin extends AutoPlugin {
   )
 
   private val testCovered = Command.command("testCovered") { state =>
-    val testCommand = testConfigs(state).map(_ + ":test").mkString("; ")
+    val testCommand = testConfigs(state).map("+" + _ + ":test").mkString("; ")
 
     val enable  = "set coverageEnabled in ThisBuild := true"
     val disable = "set coverageEnabled in ThisBuild := false"
 
-    Command.process(s"$enable; $testCommand; retrieveCoverage; codecovUpload; $disable", state)
+    Command.process(s"$enable; $testCommand; +retrieveCoverage; codecovUpload; $disable", state)
   }
 
   /**
