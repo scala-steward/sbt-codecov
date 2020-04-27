@@ -11,7 +11,7 @@ The plugin adds the following tasks/commands/settings:
 | `codecovProcess`   | Setting |                            This setting contains the process that should be executed in order to upload coverage data to [Codecov](https://codecov.io/). Defaults to `bash <(curl -s https://codecov.io/bash) -Z`.                           | `ThisBuild` |
 | `codecovUpload`    | Task    |                                                                 This task uploads coverage data to [Codecov](https://codecov.io/) using the process setting `codecovProcess`.                                                                | `ThisBuild` |
 | `retrieveCoverage` | Task    |                                          Task used to generate coverage report. Defaults to [sbt-scoverage's `coverageAggregate`](https://github.com/scoverage/sbt-scoverage#multi-project-reports).                                         | `Project`   |
-| `testCovered`      | Command | This command runs the test task in all the configurations that enable it while recovering coverage data from them. After a successful execution, uploads the coverage data to [Codecov](https://codecov.io/) using the `codecovUpload` task. | `Project`   |
+| `testCovered`      | Command | This command runs the test task with cross-building in all the configurations that enable it while recovering coverage data from them. After a successful execution, uploads the coverage data to [Codecov](https://codecov.io/) using the `codecovUpload` task. | `Project`   |
 
 > If for any reason you still want to use `testCovered` but avoid uploading coverage to Codecov, you can pass the system property `skip.coverage` set to `true`. Example:
 >
@@ -25,8 +25,8 @@ Given an SBT build that enables the `IntegrationTest` configuration... running `
 
 ```bash
 set coverageEnabled in ThisBuild := true
-test
-it:test 
++test
++it:test 
 coverageAggregate
 url("https://codecov.io/bash").cat #| "bash /dev/stdin -Z" !
 set coverageEnabled in ThisBuild := false
@@ -37,7 +37,7 @@ set coverageEnabled in ThisBuild := false
 Add the following line to your `plugins.sbt` file:
 
 ```sbt
-addSbtPlugin("com.alejandrohdezma" % "sbt-codecov" % "0.1.1")
+addSbtPlugin("com.alejandrohdezma" % "sbt-codecov" % "0.2.0")
 ```
 
 > Note: [sbt-scoverage](https://github.com/scoverage/sbt-scoverage) must be provided in the SBT build in order for this plugin to work. 

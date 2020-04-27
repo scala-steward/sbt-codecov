@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.2.0](https://github.com/alejandrohdezma/sbt-codecov/tree/v0.2.0) (2020-04-27)
+
+[Full Changelog](https://github.com/alejandrohdezma/sbt-codecov/compare/v0.1.1...v0.2.0)
+
+🚀 **Features**
+
+- `test` and `coverageAggregate` should be run in cross-compile mode [\#21](https://github.com/alejandrohdezma/sbt-codecov/pull/21) ([alejandrohdezma](https://github.com/alejandrohdezma))
+
+📈 **Dependency updates**
+
+- Update Scala, SBT & plugins to latest version [\#19](https://github.com/alejandrohdezma/sbt-codecov/pull/19) ([alejandrohdezma](https://github.com/alejandrohdezma))
+
+**Merged pull requests:**
+
+- Add CODEOWNERS [\#20](https://github.com/alejandrohdezma/sbt-codecov/pull/20) ([alejandrohdezma](https://github.com/alejandrohdezma))
+
 ## [v0.1.1](https://github.com/alejandrohdezma/sbt-codecov/tree/v0.1.1) (2020-04-20)
 
 [Full Changelog](https://github.com/alejandrohdezma/sbt-codecov/compare/v0.1.0...v0.1.1)
